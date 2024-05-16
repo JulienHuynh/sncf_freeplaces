@@ -8,9 +8,13 @@ type TrainInfoBarProps = {
 }
 
 export default function TrainInfoBar(trainInfoBarProps: TrainInfoBarProps) {
+    const handleReload = () => {
+        window.location.reload();
+    };
+
     return (
         <>
-            <div id={"train-info-bar"}>
+            <div id={"train-info-bar"} onClick={handleReload}>
                 <div className="train-b-1">
                     <p className="semi-b-title train-number">{trainInfoBarProps.trainNumber}</p>
                     <p className="departure-station">{trainInfoBarProps.departureStation}</p>
