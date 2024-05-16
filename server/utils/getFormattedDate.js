@@ -1,7 +1,9 @@
-import { format } from 'date-fns-tz';
+import {DateTime} from 'luxon';
 
 export function getFullFormattedDateFr(date) {
-    return format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX", {timeZone: 'Europe/Paris'});
+    const dateTime = DateTime.fromJSDate(date, { zone: 'Europe/Paris' });
+
+    return dateTime.toISO({includeOffset: false});
 }
 
 export function getFormattedDate(date) {
