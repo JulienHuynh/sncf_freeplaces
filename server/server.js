@@ -26,6 +26,7 @@ app.get('/api/freeplaces', async (req, res) => {
 
      const responseData = await getFreeplaces(JSON.stringify(trainParams));
      responseData.train = train;
+     responseData.date = formattedDate;
 
       res.json(responseData);
   } catch (error) {
