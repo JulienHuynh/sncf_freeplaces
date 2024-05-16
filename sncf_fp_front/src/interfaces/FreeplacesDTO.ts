@@ -30,3 +30,4 @@ export interface Train {
     arrivalStation: Station;
     _durationSec: number;
 }
+

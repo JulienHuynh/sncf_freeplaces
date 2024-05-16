@@ -12,10 +12,19 @@ export default function FreeplacesPage() {
 
     useEffect(() => {
         getFreeplacesData().then((data: any) => {
-            setFreeplacesData(data);
+            setFreeplacesData(sortedSeatsTrainData(data));
             data.isFreePlacement ? setStatusMessage("Les places de ce train sont libres ! 🥳") : setStatusMessage("");
         });
     }, [statusMessage]);
+
+    const sortedSeatsTrainData = (data: FreeplacesDTO): FreeplacesDTO => ({
+        ...data,
+        carriages: data.carriages.map(carriage => ({
+            ...carriage,
+            seats: [...carriage.seats].sort((a, b) => parseInt(a.seatNumber) - parseInt(b.seatNumber))
+        }))
+    });
+
 
     const getFreeplacesData = async () => {
         try {
