@@ -1,19 +1,19 @@
 import express from "express"
 import cors from "cors";
 import getFreeplaces from "./requests/getFreeplaces.js";
-import {getFormattedDate, getFullFormattedDate} from "./utils/getFormattedDate.js";
+import {getFormattedDate, getFullFormattedDateFr} from "./utils/getFormattedDate.js";
 import getTrains from "./requests/getTrains.js";
 import selectTrain from "./utils/selectTrain.js";
 
 const app = express();
-const port = 3000;
+const port = 8245;
 
 app.use(cors())
 
 app.get('/api/freeplaces', async (req, res) => {
   try {
      const date = new Date();
-     const formattedDate = getFullFormattedDate(date);
+     const formattedDate = getFullFormattedDateFr(date);
      const trains = await getTrains(formattedDate);
      const train = selectTrain(date, trains, "87387001", "87384008");
 
