@@ -1,7 +1,8 @@
 export default function useGetFreeplaces() {
     return async () => {
         try {
-            const response = await fetch(`http://localhost:8245/api/freeplaces`, {
+            const apiHost = process.env.REACT_APP_API_HOST;
+            const response = await fetch(`${apiHost}/api/freeplaces`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
