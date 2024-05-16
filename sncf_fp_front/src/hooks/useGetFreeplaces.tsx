@@ -1,7 +1,9 @@
+import.meta.env.VITE_API_HOST;
+
 export default function useGetFreeplaces() {
     return async () => {
         try {
-            const apiHost = process.env.REACT_APP_API_HOST;
+            const apiHost = import.meta.env.VITE_API_HOST;
             const response = await fetch(`${apiHost}/api/freeplaces`, {
                 method: 'GET',
                 headers: {
