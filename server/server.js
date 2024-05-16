@@ -7,7 +7,7 @@ import selectTrain from "./utils/selectTrain.js";
 
 const app = express();
 const port = 8245;
-const frontendUrl = process.env.FRONTEND_URL;
+const frontendUrl = "https://sncf-freeplaces.vercel.app";
 
 const corsOptions = {
     origin: frontendUrl, // Seule l'URL autorisée peut faire des requêtes
