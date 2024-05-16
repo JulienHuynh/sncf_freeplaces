@@ -64,8 +64,8 @@ export default function FreeplacesPage() {
                         ))}
                     </div>
                 : statusMessage !== "" &&
-                    <div className="statusMessage__container">
-                        <div className="statusMessage">{statusMessage}</div>
+                    <div className="message__container">
+                        <div className="message">{statusMessage}</div>
                     </div>
                 }
                 <TrainInfoBar trainNumber={freeplacesData.train._name}
