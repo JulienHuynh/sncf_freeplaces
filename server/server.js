@@ -6,7 +6,7 @@ import getTrains from "./requests/getTrains.js";
 import selectTrain from "./utils/selectTrain.js";
 
 const app = express();
-const port = 8245;
+const port = 3000;
 
 app.use(cors())
 
