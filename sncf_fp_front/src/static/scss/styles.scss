@@ -1,0 +1,23 @@
+@import "variables";
+@import "typography";
+@import "mixins";
+
+@import "../../components/organisms/TrainInfoBar/trainInfoBar";
+
+@import "../../components/templates/FreeplacesPage/freeplacesPage";
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: $black-color;
+  color: $white-color;
+  margin: 0;
+}
+
+.error-message {
+  font-size: var(--rsm);
+}
+
+.semi-b-title {
+  font-size: var(--rmd);
+  font-weight: 500;
+}

@@ -1,0 +1,95 @@
+#freeplaces {
+  .freeplaces__content {
+    padding: 30px 35px 100px 35px;
+
+    .car__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .car-number {
+          font-size: var(--r4xl);
+          font-weight: 500;
+          width: 35px;
+          text-align: center;
+      }
+
+      .first_class {
+        .freeplace_number {
+          background-color: $primary-yellow;
+          color: $black-color;
+            .first_floor, .ground_floor {
+              background-color: $black-color;
+            }
+        }
+      }
+
+      .second_class {
+        .freeplace_number {
+          background-color: $primary-color;
+          color: $black-color;
+          .first_floor, .ground_floor {
+            background-color: $black-color;
+          }
+        }
+      }
+
+      .freeplaces__list {
+        padding: 0px;
+        margin: 10px 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        width: 78%;
+
+        .freeplace_number {
+          font-size: var(--rxl);
+          margin: 6px 12px 6px 0;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: $small-radius;
+          position: relative;
+          font-weight: 500;
+
+          .first_floor {
+            top: 5px;
+            left: 8px;
+            position: absolute;
+            height: 2px;
+            width: 67%;
+            border-radius: $default-radius;
+          }
+
+          .ground_floor {
+            bottom: 5px;
+            left: 8px;
+            position: absolute;
+            height: 2px;
+            width: 67%;
+            border-radius: $default-radius;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.message__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .message {
+    font-weight: bold;
+    color: $primary-grey;
+    font-size: var(--r5xl);
+    text-align: center;
+    padding: 0 50px;
+    line-height: 55px;
+  }
+}
+

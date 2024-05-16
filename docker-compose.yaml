@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fp_nodejs_docker
+    ports:
+      - "8245:8245"
+    volumes:
+      - ./server:/usr/src/app

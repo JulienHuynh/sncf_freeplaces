@@ -1,0 +1,64 @@
+#train-info-bar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px $small-spacing;
+
+  .train-departure, .train-number {
+    font-size: var(--r4xl);
+    margin: 10px 0;
+  }
+
+  .departure-station, .arrival-station {
+    font-size: var(--rmd);
+    margin: 5px 0;
+  }
+
+  .train-b-1 {
+    width: 35%;
+  }
+
+  .train-b-2 {
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .departure-date {
+      font-size: var(--rxl);
+      font-weight: 500;
+    }
+
+    .travel-time {
+      font-size: var(--r3xl);
+    }
+
+    p {
+      margin: 3px 0;
+    }
+
+  }
+
+  .train-b-3 {
+    width: 35%;
+    text-align: right;
+  }
+}
+
+
+.bg-blur-bar {
+  position: absolute;
+  bottom: -1;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.75) 0%, rgb(14, 14, 14) 100%); /* Dégradé de noir transparent à noir opaque */
+  filter: blur(10px);
+
+  z-index: -1;
+}
