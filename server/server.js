@@ -7,8 +7,14 @@ import selectTrain from "./utils/selectTrain.js";
 
 const app = express();
 const port = 8245;
+const frontendUrl = process.env.FRONTEND_URL;
 
-app.use(cors());
+const corsOptions = {
+    origin: frontendUrl, // Seule l'URL autorisée peut faire des requêtes
+    optionsSuccessStatus: 200 // Pour éviter les avertissements CORS lors des requêtes OPTION
+};
+
+app.use(cors(corsOptions));
 
 app.get('/api/freeplaces', async (req, res) => {
   try {
