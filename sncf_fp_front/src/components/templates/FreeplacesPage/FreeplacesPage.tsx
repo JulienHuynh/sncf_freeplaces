@@ -6,6 +6,7 @@ import {convertSecondToHours, dateToFRDay, extractTimeFromISOString} from "../..
 
 export default function FreeplacesPage() {
     const [freeplacesData, setFreeplacesData] = useState<FreeplacesDTO | undefined>(undefined);
+    const [freeplacesNumber, setFreeplacesNumber] = useState<number>(0);
     const [statusMessage, setStatusMessage] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
     const getFreeplaces = useGetFreeplaces();
@@ -13,7 +14,12 @@ export default function FreeplacesPage() {
     useEffect(() => {
         getFreeplacesData().then((data: any) => {
             setFreeplacesData(sortedSeatsTrainData(data));
-            data.isFreePlacement ? setStatusMessage("Les places de ce train sont libres ! 🥳") : setStatusMessage("");
+            setFreeplacesNumber(countFreePlaces(data));
+
+            if (freeplacesNumber === 0)
+                setStatusMessage("Plus de places disponibles ! 😢");
+            if (data.isFreePlacement)
+                setStatusMessage("Les places de ce train sont libres ! 🥳");
         });
     }, [statusMessage]);
 
@@ -25,13 +31,18 @@ export default function FreeplacesPage() {
         }))
     });
 
+    const countFreePlaces = (data: FreeplacesDTO): number => {
+        return data.carriages.reduce((acc, carriage) => {
+            return acc + carriage.nbFreeST;
+        }, 0);
+    }
 
     const getFreeplacesData = async () => {
         try {
             return await getFreeplaces();
         } catch (error) {
             console.error(error);
-            setErrorMessage("Aucun train aujourd'hui ! 😴");
+            setErrorMessage("Plus aucun train aujourd'hui ! 😴");
         }
     };
 
@@ -42,7 +53,7 @@ export default function FreeplacesPage() {
             </div>
             : freeplacesData &&
             <div id="freeplaces">
-                { !freeplacesData.isFreePlacement ?
+                { (!freeplacesData.isFreePlacement && freeplacesNumber !== 0)  &&
                     <div className="freeplaces__content">
                         { freeplacesData?.carriages.map((carriage: Carriage) => (
                             carriage.nbFreeST > 0 &&
@@ -63,7 +74,8 @@ export default function FreeplacesPage() {
                             </div>
                         ))}
                     </div>
-                : statusMessage !== "" &&
+                }
+                {statusMessage !== "" &&
                     <div className="message__container">
                         <div className="message">{statusMessage}</div>
                     </div>
