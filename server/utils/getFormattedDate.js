@@ -6,6 +6,11 @@ export function getFullFormattedDateFr(date) {
     return dateTime.toISO({includeOffset: false});
 }
 
+export function convertISOToDate(isoString) {
+    const dateTime = DateTime.fromISO(isoString, { zone: 'Europe/Paris' });
+    return dateTime.toJSDate();
+}
+
 export function getFormattedDate(date) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
