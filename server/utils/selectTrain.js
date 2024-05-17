@@ -2,8 +2,7 @@ import Train from "../class/train.js"
 
 export default function selectTrain(date, trains, stationCode1, stationCode2) {
     let train = null;
-
-    if (date.getHours() < 12) {
+    if (date.getUTCHours() < 12) {
         train = selectNextTrain(date, trains, stationCode1, stationCode2);
     } else {
         train = selectNextTrain(date, trains, stationCode2, stationCode1)

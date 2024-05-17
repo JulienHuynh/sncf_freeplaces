@@ -6,7 +6,7 @@ import {convertSecondToHours, dateToFRDay, extractTimeFromISOString} from "../..
 
 export default function FreeplacesPage() {
     const [freeplacesData, setFreeplacesData] = useState<FreeplacesDTO | undefined>(undefined);
-    const [freeplacesNumber, setFreeplacesNumber] = useState<number>(0);
+    const [freeplacesNumber, setFreeplacesNumber] = useState<number | undefined>(undefined);
     const [statusMessage, setStatusMessage] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
     const getFreeplaces = useGetFreeplaces();
@@ -19,9 +19,9 @@ export default function FreeplacesPage() {
             if (freeplacesNumber === 0)
                 setStatusMessage("Plus de places disponibles ! 😢");
             if (data.isFreePlacement)
-                setStatusMessage("Les places de ce train sont libres ! 🥳");
+                setStatusMessage("Les places de ce train sont libres ! 🥳");  
         });
-    }, [statusMessage]);
+    }, [statusMessage, freeplacesNumber]);
 
     const sortedSeatsTrainData = (data: FreeplacesDTO): FreeplacesDTO => ({
         ...data,
