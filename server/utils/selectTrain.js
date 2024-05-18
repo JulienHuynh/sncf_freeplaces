@@ -26,8 +26,8 @@ function selectNextTrain(date, trains, departureCode, arrivalCode) {
     filteredTrains.sort((a, b) => {
         const departureTimeA = new Date(a.departureStation.departureTimestamp);
         const departureTimeB = new Date(b.departureStation.departureTimestamp);
-        const differenceA = Math.abs(departureTimeA - date);
-        const differenceB = Math.abs(departureTimeB - date);
+        const differenceA = Math.abs(departureTimeA - date.getUTCDate());
+        const differenceB = Math.abs(departureTimeB - date.getUTCDate());
         return differenceA - differenceB;
     });
 
