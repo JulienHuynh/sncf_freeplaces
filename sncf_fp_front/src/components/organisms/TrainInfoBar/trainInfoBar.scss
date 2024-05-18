@@ -47,18 +47,18 @@
     width: 35%;
     text-align: right;
   }
-}
 
-
-.bg-blur-bar {
-  position: absolute;
-  bottom: -1;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.75) 0%, rgb(14, 14, 14) 100%); /* Dégradé de noir transparent à noir opaque */
-  filter: blur(10px);
-
-  z-index: -1;
+  .bg-blur-bar {
+    position: absolute;
+    bottom: -1;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(14, 14, 14, 0.75) 0%, rgb(14, 14, 14) 100%); /* Dégradé de noir transparent à noir opaque */
+    filter: blur(10px);
+  
+    z-index: -1;
+  }
+  
 }

@@ -1,6 +1,6 @@
 #freeplaces {
   .freeplaces__content {
-    padding: 30px 35px 100px 35px;
+    padding: 50px 35px 100px 35px;
 
     .car__content {
       display: flex;
@@ -52,6 +52,7 @@
           border-radius: $small-radius;
           position: relative;
           font-weight: 500;
+          transition: all ease 0.2s;
 
           .first_floor {
             top: 5px;
@@ -93,3 +94,6 @@
   }
 }
 
+.pinned {
+  background-color: $primary-orange !important;
+}

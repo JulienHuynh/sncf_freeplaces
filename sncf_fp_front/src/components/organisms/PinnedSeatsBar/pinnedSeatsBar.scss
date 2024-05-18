@@ -1,0 +1,60 @@
+#pinnedSeats{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    z-index: 5000;
+    height: 60px;
+    overflow-x: auto;
+    width: 100%;
+    padding: 1px 0 1px 20px;
+    background: linear-gradient(to top, rgba(14, 14, 14, 0.75) 0%, rgb(14, 14, 14) 100%); /* Dégradé de noir transparent à noir opaque */
+
+    .carriage_pinned_section {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+
+        .carriage_pinned_number{
+            margin-right: 10px;
+            font-weight: 500;
+            font-size: var(--r2xl);
+        }
+
+        .pinned_seat {
+            margin-left: 3px;
+            font-size: var(--rlg);
+            border-radius: $small-radius;
+            width: 40px;
+            height: 40px;
+            background-color: $primary-orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $black-color;
+            font-weight: 500;
+            position: relative;
+
+            .first_floor {
+                top: 5px;
+                left: 8px;
+                position: absolute;
+                height: 2px;
+                width: 60%;
+                border-radius: $default-radius;
+                background-color: $black-color;
+              }
+    
+              .ground_floor {
+                bottom: 5px;
+                left: 8px;
+                position: absolute;
+                height: 2px;
+                width: 60%;
+                border-radius: $default-radius;
+                background-color: $black-color;
+              }
+        }
+
+    }
+
+}
