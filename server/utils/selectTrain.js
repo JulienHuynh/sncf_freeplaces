@@ -1,4 +1,5 @@
 import Train from "../class/train.js"
+import {getFullFormattedDateFr} from "./getFormattedDate.js";
 
 export default function selectTrain(date, trains, stationCode1, stationCode2) {
     let train = null;
@@ -24,12 +25,11 @@ function selectNextTrain(date, trains, departureCode, arrivalCode) {
     });
 
     filteredTrains.sort((a, b) => {
-        const departureTimeA = new Date(a.departureStation.departureTimestamp);
-        const departureTimeB = new Date(b.departureStation.departureTimestamp);
-        const differenceA = Math.abs(departureTimeA - date.getUTCDate());
-        const differenceB = Math.abs(departureTimeB - date.getUTCDate());
-        return differenceA - differenceB;
+        return new Date(a.departureStation.departureTimestamp) - new Date(b.departureStation.departureTimestamp);
     });
 
-    return filteredTrains[0];
+    return filteredTrains.find(train => {
+        const departureTime = getFullFormattedDateFr(new Date(train.departureStation.departureTimestamp));
+        return new Date(departureTime + "Z") >= date;
+    });
 }
