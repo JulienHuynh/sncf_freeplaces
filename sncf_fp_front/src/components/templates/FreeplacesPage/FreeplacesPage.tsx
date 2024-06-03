@@ -131,7 +131,7 @@ export default function FreeplacesPage() {
                                                 <li className={`freeplace_number ${pinnedSeatsState.pinnedSeats.some((pinnedCarriage) =>
                                                     pinnedCarriage.carriageNumber === carriage.carriageNumber &&
                                                     pinnedCarriage.seats.includes(parseInt(seat.seatNumber))) ? 'pinned' : ''}`} key={seat.seatNumber} onClick={() => handlePinnedSeat(carriage, seat)}>
-                                                    <div className={`place_location ${parseInt(seat.seatNumber) < 80 ? 'ground_floor' : 'first_floor'}`}></div>
+                                                    <div className={`place_location ${parseInt(seat.seatNumber) < 101 ? 'ground_floor' : 'first_floor'}`}></div>
                                                     {seat.seatNumber}
                                                 </li>
                                             )
