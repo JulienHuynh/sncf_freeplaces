@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 export default async function getFreeplaces(train) {
     try {
-        const freePlacesApiUrl = 'https://api.maplaceabord.com/mpl/freeplaces';
+        const freePlacesApiUrl = 'https://www.maplaceabord.com/api/mpl/freeplaces';
 
         const options = {
             method: "POST",

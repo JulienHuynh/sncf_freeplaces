@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 export default async function getTrains(formattedDate) {
     try {
-        const trainsApiUrl = 'https://api.maplaceabord.com/mpl/trains';
+        const trainsApiUrl = 'https://www.maplaceabord.com/api/mpl/trains';
         
         const options = {
             method: "POST",
